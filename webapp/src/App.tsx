@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+export const App = () => {
+  const posts = [
+    { id: 1, name: "Post 1", description: "Post 1 description..." },
+    { id: 2, name: "Post 2", description: "Post 2 description..." },
+    { id: 3, name: "Post 3", description: "Post 3 description..." },
+    { id: 4, name: "Post 4", description: "Post 4 description..." },
+    { id: 5, name: "Post 5", description: "Post 5 description..." }
+  ];
   return (
-    <>
+    <div>
+      <h1>Blog Lite</h1>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {
+          posts.map(post => (
+            <div key={post.id}>
+              <h2>{post.name}</h2>
+              <p>{post.description}</p>
+            </div>
+          ))
+        }
       </div>
-      <h1>Vite + React11</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default App
