@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom'
 import { trpc } from '../../lib/trpc'
+import { getViewPostRoute } from '../../lib/routes'
 
 
 export const AllPostsPage = () => {
@@ -18,7 +20,7 @@ export const AllPostsPage = () => {
         <div>
           {data?.posts.map((post) => (
             <div key={post.id}>
-              <h2>{post.name}</h2>
+              <h2><Link to={getViewPostRoute({ postId: post.id.toString() })}>{post.name}</Link></h2>
               <p>{post.description}</p>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import { initTRPC } from '@trpc/server'
 
-const posts: {id: number, name: string; description: string}[] = [
+const posts = [
   { id: 1, name: 'Post 1', description: 'Post 1 description...' },
   { id: 2, name: 'Post 2', description: 'Post 2 description...' },
   { id: 3, name: 'Post 3', description: 'Post 3 description...' },
