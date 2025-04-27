@@ -17,9 +17,12 @@
     "@trpc/client": "^10.37.1",
     "@trpc/react-query": "^10.37.1",
     "@trpc/server": "^10.37.1",
+    "include-media": "^2.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.5.0"
+    "react-router-dom": "^7.5.0",
+    "reset-css": "^5.0.2",
+    "sass": "^1.86.3"
   },
   "devDependencies": {
     "@types/react": "^19.0.10",

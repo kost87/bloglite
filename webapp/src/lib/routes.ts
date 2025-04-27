@@ -6,6 +6,6 @@ export const getAllPostsRoute = () => '/'
 
 export const viewPostRouteParams = getRouteParams({ postId: true })
 export type ViewPostRouteParams = typeof viewPostRouteParams
-console.log(viewPostRouteParams);
-
 export const getViewPostRoute = ({ postId }: ViewPostRouteParams) => `/posts/${postId}`
+
+export const getNewPostRoute = () => `/posts/new`
