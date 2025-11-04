@@ -1,31 +1,24 @@
+import { zCreatePostTrpcInput } from "@bloglite/backend/src/router/createPost/input"
 import { useFormik } from "formik"
+import { withZodSchema } from "formik-validator-zod"
 import { Input } from "../../components/input"
 import { Segment } from "../../components/Segment"
 import { Textarea } from "../../components/Textarea"
-import { withZodSchema } from "formik-validator-zod"
-import { z } from "zod"
+import { trpc } from "../../lib/trpc"
 
 export const NewPostPage = () => {
+  const createPost = trpc.createPost.useMutation();
   const formik = useFormik({
     initialValues: {
       name: '',
       description: '',
       text: ''
     },
-    validate: withZodSchema(
-      z.object({
-        name: z.string().min(1),
-        description: z.string().min(1),
-        text: z.string().min(100, 'Text shoud be at least 100 characters long'),
-      })
-    ),
-    onSubmit: (values) => {
-      console.info('Submitted', values)
+    validate: withZodSchema(zCreatePostTrpcInput),
+    onSubmit: async (values) => {
+      await createPost.mutateAsync(values)
     }
   })
-
-  console.log(formik);
-  
 
   return (
     <Segment title="New Post">
